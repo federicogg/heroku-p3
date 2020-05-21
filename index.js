@@ -105,7 +105,6 @@ app.post('/game', function(req,res){
 		{
 			var json_res = createJsonGame("HAS DEFENDIDO");
 			game.defend(json_req.user);
-			game.deleteRandomComunity('fede');
 			game.nextTurn();
 			
 		}
