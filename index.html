@@ -214,7 +214,7 @@
 			listContainer.appendChild(element);
 		}
 		var port = 8080;
-		var serviceURL = 'http://192.168.0.16:' + port;
+		var serviceURL = 'https://p3-spain.herokuapp.com';
 		var socket = io.connect(serviceURL);
 
 		socket.on('actualizar_jugadores', function(data) {

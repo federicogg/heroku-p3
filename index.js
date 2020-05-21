@@ -1,4 +1,4 @@
-const port = 8080;
+const port = process.env.PORT;
 const hostname = "192.168.0.16";
 
 //Express
@@ -124,8 +124,8 @@ app.post('/game', function(req,res){
 });
 
 //Express escuchando en 8080
-server.listen(port,hostname,()=> console.log(`Listening on port ${port}`));
-//server.listen(port,()=> console.log(`Listening on port ${port}`));
+//server.listen(port,hostname,()=> console.log(`Listening on port ${port}`));
+server.listen(port,()=> console.log(`Listening on port ${port}`));
 var io = socketio.listen(server);
 
 io.sockets.on('connection',function(client) {
