@@ -138,7 +138,7 @@ class Game {
 
                 if (comunity === territory.comunity)
                 {
-                    console.log ('Adyacentes 0 ' + territory.adjacents.toString());
+
                     for (var z=0; z<territory.adjacents.length; z++)
                         adjacents.push(territory.adjacents[z]);
                 }
@@ -280,31 +280,25 @@ class Game {
 
     deleteComunity(comunity, user)
     {
-        var i=0;
+        var player = this.getPlayer(user);
+        var i = player.num_jugador;
+        
+        var j=0;
         var terminado = false;
-        while (!terminado && i<this.players.length)
+
+        while (!terminado && j < this.players[i].comunities.length)
         {
-            if(this.players[i].user === user)
+            if (this.players[i].comunities[j] == comunity)
             {
-                var j=0;
-                var terminado2 = false;
-                while (!terminado2 && j < this.players.comunities.length)
-                {
-                    if (this.players.comunities[j] == comunity)
-                    {
-                        this.players.comunities.splice(j,1);
-                        this.setAdjacents(i);
-                        terminado2 = true;
-                    }
-
-                    j++;
-                }
-
+                this.players[i].comunities.splice(j,1);
+                this.setAdjacents(i);
                 terminado = true;
             }
 
-            i++;
+            j++;
         }
+
+
         var player = new Player('NO_ONE', -1);
         player.setColor('grey');
         this.changeTerritoryPlayer(comunity,player);
@@ -329,21 +323,11 @@ class Game {
 
     addComunity(comunity, user)
     {
-        var i=0;
-        var terminado = false;
-        while (!terminado && i<this.players.length)
-        {
-            if(this.players[i].user === user)
-            {
-                this.players[i].comunities.push(comunity);
-                this.setAdjacents(i);
-                terminado = true;
-            } 
-
-            i++;
-        }
-
         var player = this.getPlayer(user);
+        var i = player.num_jugador;
+
+        this.players[i].comunities.push(comunity);
+        this.setAdjacents(i);
 
         this.changeTerritoryPlayer(comunity,player);
     }
@@ -360,7 +344,6 @@ class Game {
     }
 
 
-    
 
 }
 
