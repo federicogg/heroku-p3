@@ -145,9 +145,7 @@ class Game {
             }
         }
 
-        console.log ('Adyacentes 1 ' + adjacents.toString());
         adjacents = this.deleteOwnComunities(adjacents,this.players[num_j].comunities);
-        console.log ('Adyacentes 2 ' + adjacents.toString());
         adjacents = this.deleteDuplicatedTerritories(adjacents);
         this.players[num_j].setAdjacents(adjacents);
     }
@@ -160,8 +158,6 @@ class Game {
             {
                 if (adjacents[i] == comunities[j])
                 {
-                    console.log ('Adyacente[i]' + adjacents[i]);
-                    console.log (comunities[j])
                     adjacents.splice(i,1);
                 }
             }
@@ -296,7 +292,7 @@ class Game {
                 {
                     if (this.players.comunities[j] == comunity)
                     {
-                        this.players.comunities.splice(j);
+                        this.players.comunities.splice(j,1);
                         this.setAdjacents(i);
                         terminado2 = true;
                     }
