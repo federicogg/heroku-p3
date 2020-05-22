@@ -305,8 +305,9 @@ class Game {
 
             i++;
         }
-        
-        this.changeTerritoryPlayer(comunity,new Player('NO_ONE', -1));
+        var player = new Player('NO_ONE', -1);
+        player.setColor('grey');
+        this.changeTerritoryPlayer(comunity,player);
 
     }
 
