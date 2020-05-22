@@ -213,14 +213,14 @@ class Game {
             var dado2 = this.getRndInteger(1,6);
             this.msg = user + ' sacó un ' + dado1 + ' , '  + territory.player.user + ' sacó un ' + dado2;
 
-            if (dado1 > dado2)
+            if (dado1 >= dado2)
             {
                 this.deleteComunity(territory.player.user);
                 this.addComunity(comunity,user);
                 this.msg += '<br>'+ user + ' ha ganado ' + comunity + '</br>';
                 
             }
-            else if (territory.player.defending && dado1 == dado2)
+            else if (territory.player.defending && dado1 < dado2)
             {
                 this.msg += '<br>'+ territory.player.user + ' ha ganado eliminando a su adversario una comunidad aleatoria </br>';
                 this.deleteRandomComunity(user); 
