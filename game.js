@@ -152,18 +152,11 @@ class Game {
 
     deleteOwnComunities(adjacents,comunities)
     {
-        for (var i=0; i<adjacents.length; i++)
-        {
-            for (var j=0; j<comunities.length; j++)
-            {
-                if (adjacents[i] == comunities[j])
-                {
-                    adjacents.splice(i,1);
-                }
-            }
-        }
 
-        
+        comunities.forEach(el => {
+            adjacents = adjacents.filter(element => element !== el);
+        });
+
         return adjacents;
     }
 
