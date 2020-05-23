@@ -193,6 +193,7 @@ class Game {
 
     attack (user, comunity)
     {
+        comunity = comunity.toLowerCase();
         var territory = this.getTerritory(comunity);
         var player = this.getPlayer(user);
         this.players[player.num_jugador].defending = false;
@@ -201,7 +202,7 @@ class Game {
         {
 
             this.addComunity(comunity,user);
-            this.msg = user + ' ha ganado porque no había nadie';
+            this.msg = user + ' ha ganado '  + comunity + ' porque estaba vacío';
         }
         else
         {
@@ -272,7 +273,11 @@ class Game {
         this.turn++;
         this.turn = this.turn % this.players.length;
         this.user_turn = this.players[this.turn].user;
-        this.setAdjacents(this.turn);
+
+        this.players.forEach(player => {
+            this.setAdjacents(player.num_jugador);
+        });
+
         this.msg += '<br>Le toca a ' + this.user_turn + '. Sus opciones para atacar son:</br>';
         this.msg += '<br>' + this.players[this.turn].adjacents + '.</br>';
 
