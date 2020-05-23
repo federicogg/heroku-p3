@@ -205,8 +205,8 @@ class Game {
         }
         else
         {
-            var dado1 = this.getRandomArbitrary(1,5);
-            var dado2 = this.getRandomArbitrary(1,5);
+            var dado1 = this.getRandomInt(1,5);
+            var dado2 = this.getRandomInt(1,5);
             this.msg = user + ' sacó un ' + dado1 + ' , '  + territory.player.user + ' sacó un ' + dado2;
 
             if (dado1 >= dado2)
@@ -344,8 +344,8 @@ class Game {
     }
 
 
-    getRandomArbitrary(min, max) {
-        return Math.random() * (max - min) + min;
+    getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min;
     }
     
 
