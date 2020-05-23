@@ -205,8 +205,8 @@ class Game {
         }
         else
         {
-            var dado1 = Math.floor( Math.random() * 6 ) +1;
-            var dado2 = Math.floor( Math.random() * 6 ) +1;
+            var dado1 = this.rollDice1();
+            var dado2 = this.rollDice2();
             this.msg = user + ' sacó un ' + dado1 + ' , '  + territory.player.user + ' sacó un ' + dado2;
 
             if (dado1 >= dado2)
@@ -342,6 +342,18 @@ class Game {
     getRndInteger(min, max) {
         return Math.floor(Math.random() * (max - min) ) + min;
     }
+
+
+    rollDice1(){
+        var randomDice = Math.floor(6*Math.random())+1;  
+        return randomDice;
+    }
+    
+    rollDice2(){
+        var randomDice = Math.floor(6*Math.random())+1;  
+        return randomDice;
+    }
+    
 
 
 
