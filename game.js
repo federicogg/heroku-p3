@@ -274,9 +274,6 @@ class Game {
         this.turn = this.turn % this.players.length;
         this.user_turn = this.players[this.turn].user;
 
-        this.players.forEach(player => {
-            this.setAdjacents(player.num_jugador);
-        });
 
         this.msg += '<br>Le toca a ' + this.user_turn + '. Sus opciones para atacar son:</br>';
         this.msg += '<br>' + this.players[this.turn].adjacents + '.</br>';
