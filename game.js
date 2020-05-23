@@ -206,8 +206,8 @@ class Game {
         }
         else
         {
-            var dado1 = this.getRandomInt(1,5);
-            var dado2 = this.getRandomInt(1,5);
+            var dado1 = this.getRandomInt(1,6);
+            var dado2 = this.getRandomInt(1,6);
             this.msg = user + ' sacó un ' + dado1 + ' , '  + territory.player.user + ' sacó un ' + dado2;
 
             if (dado1 >= dado2)
