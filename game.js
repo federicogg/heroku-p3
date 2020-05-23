@@ -202,7 +202,7 @@ class Game {
         {
 
             this.addComunity(comunity,user);
-            this.msg = user + ' ha ganado '  + comunity + ' porque estaba vacío';
+            this.msg = user + ' ha ganado '  + comunity + ' porque el territorio estaba vacío';
         }
         else
         {
