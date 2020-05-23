@@ -239,7 +239,7 @@ class Game {
     {
         var player = this.getPlayer(user);
         var max = this.players[player.num_jugador].comunities.length-1;
-        var random = this.getRndInteger(0, max);
+        var random = this.getRandomInt(0, max);
         this.deleteComunity(this.players[player.num_jugador].comunities[random]);
     }
 
