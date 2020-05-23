@@ -197,8 +197,9 @@ class Game {
         var territory = this.getTerritory(comunity);
         var player = this.getPlayer(user);
         this.players[player.num_jugador].defending = false;
+        var user2 = territory.player.user;
 
-        if (territory.player.user == 'NO_ONE')
+        if (user2 == 'NO_ONE')
         {
 
             this.addComunity(comunity,user);
@@ -208,18 +209,18 @@ class Game {
         {
             var dado1 = this.getRandomInt(1,6);
             var dado2 = this.getRandomInt(1,6);
-            this.msg = user + ' sacó un ' + dado1 + ' , '  + territory.player.user + ' sacó un ' + dado2;
+            this.msg = user + ' sacó un ' + dado1 + ' , '  + user2 + ' sacó un ' + dado2;
 
             if (dado1 >= dado2)
             {
-                this.deleteComunity(territory.player.user);
+                this.deleteComunity(territory.comunity,user2);
                 this.addComunity(comunity,user);
                 this.msg += '<br>'+ user + ' ha ganado ' + comunity + '</br>';
                 
             }
             else if (territory.player.defending && dado1 < dado2)
             {
-                this.msg += '<br>'+ territory.player.user + ' ha ganado eliminando a su adversario una comunidad aleatoria </br>';
+                this.msg += '<br>'+ user2 + ' ha ganado eliminando a su adversario una comunidad aleatoria </br>';
                 this.deleteRandomComunity(user); 
             }
             else
